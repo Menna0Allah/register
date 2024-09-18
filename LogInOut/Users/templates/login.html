@@ -1,0 +1,19 @@
+<h2>Login page</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {% if messages %}
+    <div>
+        {% for x in messages %}
+            <script>
+                alert("{{ x }}");
+            </script>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <input type="text" name="username" placeholder="your username" required>
+    <input type="password" name="password" placeholder="your password" required>
+    <button type="submit">Login</button>
+</form>
+
+<a href="{% url 'register' %}">Create an account from here</a>
